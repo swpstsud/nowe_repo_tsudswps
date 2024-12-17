@@ -67,8 +67,10 @@ class StanowiskoSerializer(serializers.Serializer):
         return Stanowisko.objects.create(**validated_data)
     
     def update(self, instance, validated_data):
-        instance.nazwa = validated_data.get('nazwa', instance.nazwa)
-        instance.opis = validated_data.get('opis', instance.opis)
+        instance.name = validated_data.get('name', instance.name)
+        instance.shirt_size = validated_data.get('shirt_size', instance.shirt_size)
+        instance.data_dodanie = validated_data.get('data_dodania', instance.miesiac_dodania)
+        instance.stanowisko = validated_data.get('stanowisko', instance.team)
         instance.save()
         return instance
     
